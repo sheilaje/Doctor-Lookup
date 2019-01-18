@@ -1,9 +1,10 @@
 class DoctorList {
-  getDoctors(){
+  getDoctors(location){
     const Promise = require('es6-promise').Promise;
     return new Promise(function(resolve, reject) {
       const request = new XMLHttpRequest();
-      const url = `https://api.betterdoctor.com/2016-03-01/doctors?location=OR&skip=0&user_key=a970b2e93da811b79c403deaeedd085e`;
+      const url = `https://api.betterdoctor.com/2016-03-01/doctors?location=${location}&skip=0&user_key=${process.env.exports.apiKey}`;
+      console.log(url);
       request.onload = function() {
         if (this.status === 200) {
           resolve(request.response);
