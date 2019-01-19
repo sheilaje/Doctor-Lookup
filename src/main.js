@@ -4,44 +4,42 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 $(document).ready(function() {
-  $("#submitButton").click(function() {
+  $("#submitNameButton").click(function() {
     event.preventDefault();
     let name = $("#name").val();
     let location = $("#location").val();
-    console.log(name, location);
+    let query = $("#location").val();
+    //console.log(name, location);
     const doctorListObject = new DoctorList();
 
-    let promise1 = doctorListObject.getDoctors(name, location);
+    let promise1 = doctorListObject.getDoctorsByName(name, location,query);
 
     promise1.then(function(response) {
       let body = JSON.parse(response);
-      console.log("body:", body);
+      //console.log("body:", body);
       doctorParse(body);
-      for(let i=0; i<=body.data.length; i++)
-      {
-          console.log(body.data[i].specialties[0].name);
-        }
+      // for(let i=0; i<=body.data.length; i++)
+      // {
+      //   console.log(body.data[i].specialties[0].name);
+      // }
     }).catch(function(error) {
       console.error(error);
     });
-
+  });
 
   function doctorParse(body){
     let outputList = "";
     $("#doctors").append('<h3>List Of Doctors in Portland</h3>')
-
     for (let i=0; i<body.data.length; i++)
     {
-    outputList += `<div class="doctors" align ="left"> <p>${body.data[i].profile.first_name} ${body.data[i].profile.last_name}</p>`;
+      outputList += `<div class="doctors" align ="left"> <p>${body.data[i].profile.first_name} ${body.data[i].profile.last_name}</p>`;
 
-    let addressString = printLocation(body.data[i]);
-    console.log("Address String: " + addressString);
-    outputList += addressString;
+      let addressString = printLocation(body.data[i]);
+      outputList += addressString;
 
-    outputList += `</div>`;
-    //console.log(outputList);
-  }
-  $("#doctors").append(outputList);
+      outputList += `</div>`;
+    }
+    $("#doctors").append(outputList);
   }
 
   function printLocation(body){
@@ -52,6 +50,27 @@ $(document).ready(function() {
     return addressList;
   }
 
-});
+  $("#submitMedicalIssueButton").click(function() {
+    event.preventDefault();
+
+    let location = $("#location").val();
+    let query = $("#query").val();
+
+    const doctorListObject = new DoctorList();
+
+    let promise2 = doctorListObject.getDoctorsByQuery( location,query);
+
+    promise2.then(function(response) {
+      let body = JSON.parse(response);
+      console.log("body:", body);
+      doctorParse(body);
+      // for(let i=0; i<=body.data.length; i++)
+      // {
+      //   console.log(body.data[i].specialties[0].name);
+      // }
+    }).catch(function(error) {
+      console.error(error);
+    });
+  });
 
 });
