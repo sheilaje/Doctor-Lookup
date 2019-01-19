@@ -6,32 +6,33 @@
 <body>
   <div class="container">
     <h1>Doctor Search Engine</h1>
-    <form class="doctorForm" >
-      <div class="userName">
-        <label for="name">Name</label>
-        <input class="form-control form-control-lg"  id="name" name="" value="" placeholder="name">
-        <!-- /#location -->
-      </div>
-      <div class="location">
-        <label for="location">Location</label>
-        <select class="form-control form-control-lg" id="location">
-          <option value="OR">OR</option>
-        </select>
+    <form class="form-inline doctorForm" >
+      <div class="form-group userName">
+          <label for="name">Name</label>
+          <input class="form-control form-control-lg"  id="name" name="" value="" placeholder="name">
+          <!-- /#location -->
+
       </div>
 
-      <div class="query">
+      <div class="form-group">
+          <button class="btn btn-default btn-search" id="submitNameButton" type="button"> Search by name</button>
+      </div>
+    </form>
+<div class='dividerOr'>OR</div>
+    <form class="form-inline doctorMedicalForm" >
+      <div class="form-group userName">
         <label for="query">Medical Condition</label>
         <input class="form-control form-control-lg"  id="query" name="" value="" placeholder="medical condition">
+      </div>
 
-  <br><br><br>
-  <button id="submitNameButton" type="button"> Search by name</button>
-  <button id="submitMedicalIssueButton" type="button"> Search by medical Issue</button>
-  <!-- <p id="display"></p> -->
-  <br><br>
-</form>
-<div id="doctors">
+      <div class="form-group">
+        <button class="btn btn-default btn-search" id="submitMedicalIssueButton" type="button"> Search by medical Issue</button>
+      </div>
+      <!-- <p id="display"></p> -->
+    </form>
+    <div id="doctors">
 
-</div>
-</div>
+    </div>
+  </div>
 </body>
 </html>

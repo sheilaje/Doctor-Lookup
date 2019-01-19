@@ -2,6 +2,7 @@ import { DoctorList } from './doctorPromise.js';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
 
 $(document).ready(function() {
   $("#submitNameButton").click(function() {
@@ -32,20 +33,27 @@ $(document).ready(function() {
     $("#doctors").append('<h3>List Of Doctors in Portland</h3>')
     for (let i=0; i<body.data.length; i++)
     {
-      outputList += `<div class="doctors" align ="left"> <p>${body.data[i].profile.first_name} ${body.data[i].profile.last_name}</p>`;
+      outputList += `<div class="doctorsWrapper" align ="left"> <div class="doctors" >${body.data[i].profile.first_name} ${body.data[i].profile.last_name}</div>`;
 
       let addressString = printLocation(body.data[i]);
       outputList += addressString;
 
       outputList += `</div>`;
     }
-    $("#doctors").append(outputList);
+    $("#doctors").html(outputList);
   }
 
   function printLocation(body){
     let addressList = "";
-    for(let i=0; i<body.practices.length; i++){
-      addressList += `<p> ${body.practices[i].visit_address.street} ${body.practices[i].visit_address.city} ${body.practices[i].visit_address.state} ${body.practices[i].visit_address.zip}</p>`;
+    
+    let uniqueArray = body.practices.filter(function(item, pos) {
+        return body.practices.indexOf(item) == pos;
+    })
+
+    for(let i=0; i<uniqueArray.length; i++){
+      addressList += `<div class='location'><span class='address'> ${uniqueArray[i].visit_address.street} ${uniqueArray[i].visit_address.city} ${uniqueArray[i].visit_address.state} ${uniqueArray[i].visit_address.zip}</span>
+      <span class='newPatient'>${body.practices[i].accepts_new_patients}</span>
+      </div>`;
     }
     return addressList;
   }

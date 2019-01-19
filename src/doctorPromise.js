@@ -3,7 +3,7 @@ class DoctorList {
     const Promise = require('es6-promise').Promise;
     return new Promise(function(resolve, reject) {
       const request = new XMLHttpRequest();
-  const url = `https://api.betterdoctor.com/2016-03-01/doctors?location=${location}&skip=0&limit=50&name=${name}&user_key=${process.env.exports.apiKey}`;
+  const url = `https://api.betterdoctor.com/2016-03-01/doctors?location=or-portland&skip=0&limit=50&name=${name}&user_key=${process.env.exports.apiKey}`;
       console.log(url);
       request.onload = function() {
         if (this.status === 200) {
@@ -21,7 +21,7 @@ class DoctorList {
     const Promise = require('es6-promise').Promise;
     return new Promise(function(resolve, reject) {
       const request = new XMLHttpRequest();
-      const url = `https://api.betterdoctor.com/2016-03-01/doctors?location=${location}&skip=0&limit=50&query=${query}&user_key=${process.env.exports.apiKey}`;
+      const url = `https://api.betterdoctor.com/2016-03-01/doctors?location=or-portland&skip=0&limit=50&query=${query}&user_key=${process.env.exports.apiKey}`;
       console.log(url);
       request.onload = function() {
         if (this.status === 200) {

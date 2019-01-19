@@ -1,0 +1,38 @@
+.newPatient {
+  margin-left: 10px;
+}
+.doctors {
+  font-weight: bold;
+  margin-top: 10px;
+}
+.address {
+  margin-left: 10px;
+}
+.doctorsWrapper {
+  border-bottom: 1px dotted gray;
+}
+.doctorMedicalForm{
+  margin-top: 20px;
+}
+.userName label {
+  font-weight: bold;
+  text-align: right;
+  margin: 5px;
+  width: 150px;
+}
+.dividerOr{
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+.btn-search{
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  margin-left: 5px;
+}
+body {
+  background-color: #d7d7d7;
+}
