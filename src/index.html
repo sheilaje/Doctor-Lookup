@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Doctor search engine</title>
-  </head>
-  <body>
-    <div class="container">
+<head>
+  <title>Doctor search engine</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Doctor Search Engine</h1>
     <form class="doctorForm" >
       <div class="userName">
         <label for="name">Name</label>
         <input class="form-control form-control-lg"  id="name" name="" value="" placeholder="name">
         <!-- /#location -->
       </div>
-      <div class="userInput">
+      <div class="location">
         <label for="location">Location</label>
-        <input class="form-control form-control-lg"  id="location" type="text" name="" value="" placeholder="location">
+        <select class="form-control form-control-lg" id="location">
+          <option value="OR">OR</option>
+        </select>
       </div>
-      <br><br><br>
-        <button id="submitButton" type="button"> Submit</button>
-        <!-- <p id="display"></p> -->
-        <br><br>
-    </form>
-    <div id="doctors">
 
-    </div>
-  </div>
-  </body>
+  <br><br><br>
+  <button id="submitButton" type="button"> Search with name</button>
+  <!-- <p id="display"></p> -->
+  <br><br>
+</form>
+<div id="doctors">
+
+</div>
+</div>
+</body>
 </html>
