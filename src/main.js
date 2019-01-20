@@ -10,19 +10,13 @@ $(document).ready(function() {
     let name = $("#name").val();
     let location = $("#location").val();
     let query = $("#location").val();
-    //console.log(name, location);
     const doctorListObject = new DoctorList();
 
-    let promise1 = doctorListObject.getDoctorsByName(name, location,query);
+    let promise1 = doctorListObject.getDoctorsByName(name, location);
 
     promise1.then(function(response) {
       let body = JSON.parse(response);
-      //console.log("body:", body);
       doctorParse(body);
-      // for(let i=0; i<=body.data.length; i++)
-      // {
-      //   console.log(body.data[i].specialties[0].name);
-      // }
     }).catch(function(error) {
       console.error(error);
     });
@@ -45,14 +39,14 @@ $(document).ready(function() {
 
   function printLocation(body){
     let addressList = "";
-    
+
     let uniqueArray = body.practices.filter(function(item, pos) {
         return body.practices.indexOf(item) == pos;
     })
 
     for(let i=0; i<uniqueArray.length; i++){
-      addressList += `<div class='location'><span class='address'> ${uniqueArray[i].visit_address.street} ${uniqueArray[i].visit_address.city} ${uniqueArray[i].visit_address.state} ${uniqueArray[i].visit_address.zip}</span>
-      <span class='newPatient'>${body.practices[i].accepts_new_patients}</span>
+      addressList += `<div class='location'><span class='address'> ${uniqueArray[i].visit_address.street}, ${uniqueArray[i].visit_address.city}, ${uniqueArray[i].visit_address.state}. ${uniqueArray[i].visit_address.zip}</span>
+      <span class='newPatient'><p> Accepting New Patients -${body.practices[i].accepts_new_patients}</p></span>
       </div>`;
     }
     return addressList;
@@ -70,12 +64,7 @@ $(document).ready(function() {
 
     promise2.then(function(response) {
       let body = JSON.parse(response);
-      console.log("body:", body);
       doctorParse(body);
-      // for(let i=0; i<=body.data.length; i++)
-      // {
-      //   console.log(body.data[i].specialties[0].name);
-      // }
     }).catch(function(error) {
       console.error(error);
     });
