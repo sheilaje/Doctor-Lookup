@@ -18,11 +18,10 @@ A JavaScript application that allows a user to view doctors in the Portland area
 
 | Behavior | Input | Output |
 |----------|-------|--------|
-|  Program takes a user's medical issue and recieve a list of doctors in Portland, OR area | User Input: Flu | List of Doctors that treat the User Input Medical Issue |
-|   Program takes a user's input for a doctor name to receive a list of doctors in the Portland area that fit the search query| User Input: "SomeName" | A valid List Of Doctors is returned with information included about each doctor: first name, last name, address, phone number, website and whether or not the doctor is accepting new patients  |
-| Program takes a user's input for a doctor name and if query response doesn't include any doctors, then user should recieve a notification  hat states that no doctors meet the criteria.| User Input: "SomeName"  | "No Doctors available with SomeName in Portland, OR area" |
-| Program's API call for a user query results in an error (any message not a 200 OK), the application should return a notification to user that states what the error is.|  User Query: Doctor Name | "There was an error processing your request"|
-| Program's API call for a user query results in an error (any message not a 200 OK), the application should return a notification to user that states what the error is.|  User Query: "Flu" | "There was an error processing your request"|
+|  Program takes a user's medical issue and recieve a list of doctors in Portland-OR area | User Input: Sore Throat | List of Doctors that treat the User Input Medical Issue |
+|   Program takes a user's input for a doctor name to receive a list of doctors in the Portland area that fit the search query| User Input: Franklin | A valid List Of Doctors is returned with information included about each doctor: first name, last name, address and whether or not the doctor is accepting new patients  |
+| Program takes a user's input for a doctor name and if query response doesn't include any doctors, then user should receive a notification  hat states that no doctors meet the criteria.| User Input: "SomeName"  | "No matches available" |
+| Program takes a user's input for a medical issue and if query response doesn't include any doctors, then user should receive a notification  hat states that no doctors meet the criteria.| User Input: "SomeName"  | "No matches available" |
 
  ---
 ## Setup on OSX <a name="setup"></a>
