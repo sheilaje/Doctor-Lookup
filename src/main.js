@@ -8,15 +8,18 @@ $(document).ready(function() {
   $("#submitNameButton").click(function() {
     event.preventDefault();
     let name = $("#name").val();
-    let location = $("#location").val();
-    let query = $("#location").val();
+    $("#name").val("");
     const doctorListObject = new DoctorList();
 
-    let promise1 = doctorListObject.getDoctorsByName(name, location);
+    let promise1 = doctorListObject.getDoctorsByName(name);
 
     promise1.then(function(response) {
       let body = JSON.parse(response);
-      doctorParse(body);
+      if(body.data.length < 1){
+        $("#doctors").html("No matches found !!");
+      }else {
+        doctorParse(body);
+      }
     }).catch(function(error) {
       console.error(error);
     });
@@ -55,19 +58,22 @@ $(document).ready(function() {
   $("#submitMedicalIssueButton").click(function() {
     event.preventDefault();
 
-    let location = $("#location").val();
     let query = $("#query").val();
+    $("#query").val("");
 
     const doctorListObject = new DoctorList();
 
-    let promise2 = doctorListObject.getDoctorsByQuery( location,query);
+    let promise2 = doctorListObject.getDoctorsByQuery(query);
 
     promise2.then(function(response) {
       let body = JSON.parse(response);
-      doctorParse(body);
+      if(body.data.length < 1){
+        $("#doctors").html("No Matches Found!!")
+      }else {
+        doctorParse(body);
+      }
     }).catch(function(error) {
       console.error(error);
     });
   });
-
 });
