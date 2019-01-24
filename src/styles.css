@@ -36,3 +36,9 @@
 body {
   background-color: #d7d7d7;
 }
+
+#doctors{
+  font-weight: bold;
+  margin-top: 10px;
+  margin: 5px;
+}
