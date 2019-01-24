@@ -1,5 +1,5 @@
 class DoctorList {
-  getDoctorsByName(name,location){
+  getDoctorsByName(name){
     const Promise = require('es6-promise').Promise;
     return new Promise(function(resolve, reject) {
       const request = new XMLHttpRequest();
@@ -16,7 +16,7 @@ class DoctorList {
     });
   }
 
-  getDoctorsByQuery(location,query){
+  getDoctorsByQuery(query){
     const Promise = require('es6-promise').Promise;
     return new Promise(function(resolve, reject) {
       const request = new XMLHttpRequest();
